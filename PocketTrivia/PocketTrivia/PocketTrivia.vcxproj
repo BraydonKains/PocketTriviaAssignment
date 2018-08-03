@@ -22,7 +22,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{152B84F6-2CF4-4175-B970-DB95FA7F8D0C}</ProjectGuid>
     <RootNamespace>PocketTrivia</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -119,12 +119,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="chapter.cpp" />
+    <ClCompile Include="chapter_load_example.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="question.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="chapter.h" />
     <ClInclude Include="enums.h" />
     <ClInclude Include="question.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="chapter_one.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

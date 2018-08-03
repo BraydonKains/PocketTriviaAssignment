@@ -7,12 +7,14 @@ using std::string;
 using std::map;
 using std::pair;
 
+using namespace std;
+
 class Question {
 public:
 	Answer correct;
 	map <Answer, string> options;
 
-	Question(string a, string b, string c, string d);
+	Question(string a, string b, string c, string d, Answer _correct);
 
 	bool guessAnswer(Answer answer);
 };

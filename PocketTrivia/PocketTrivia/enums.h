@@ -1,4 +1,7 @@
 #pragma once
 enum Answer {
-	A, B, C, D
+	A,
+	B,
+	C,
+	D
 };

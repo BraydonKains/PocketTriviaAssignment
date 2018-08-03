@@ -2,7 +2,7 @@
 #include <string>
 #include <vector>
 #include "question.h"
-
+using namespace std;
 class Chapter {
 public:
 	int id;
@@ -10,5 +10,5 @@ public:
 
 	Chapter(int _id, string _questionSet);
 
-	vector<Question> load();
+	vector <Question*> load();
 };
