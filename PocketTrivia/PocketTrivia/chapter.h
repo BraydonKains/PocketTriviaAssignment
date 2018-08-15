@@ -2,13 +2,14 @@
 #include <string>
 #include <vector>
 #include "question.h"
-using namespace std;
+
 class Chapter {
 public:
-	int id;
-	string questionSet;
+	int chapter_id;
+	std::string chapter_name;
+	std::string questionSet;
+	
+	Chapter(int _id, std::string name, ::string _questionSet);
 
-	Chapter(int _id, string _questionSet);
-
-	vector <Question*> load();
+	std::vector<Question*> load();
 };

@@ -123,14 +123,19 @@
     <ClCompile Include="chapter_load_example.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="question.cpp" />
+    <ClCompile Include="unit.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="chapter.h" />
     <ClInclude Include="enums.h" />
     <ClInclude Include="question.h" />
+    <ClInclude Include="unit.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="chapter_four.txt" />
     <Text Include="chapter_one.txt" />
+    <Text Include="chapter_three.txt" />
+    <Text Include="chapter_two.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

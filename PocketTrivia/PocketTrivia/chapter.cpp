@@ -10,8 +10,9 @@ using std::vector;
 using std::ifstream;
 using std::istringstream;
 
-Chapter::Chapter(int _id, string _questionSet) {
-	id = _id;
+Chapter::Chapter(int _id, string _name, string _questionSet) {
+	chapter_id = _id;
+	chapter_name = _name;
 	questionSet = _questionSet;
 }
 
