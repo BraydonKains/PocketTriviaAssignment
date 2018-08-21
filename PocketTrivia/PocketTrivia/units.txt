@@ -1,0 +1,1 @@
+Unit 1: Cross-Platform Game Programming with the Allegro Library|chapter_one.txt?Demystifying Game Development;chapter_two.txt?Getting Started with the Allegro Game Library;chapter_three.txt?2D Vector Graphics Programming;chapter_four.txt?Writing Your First Allegro Game

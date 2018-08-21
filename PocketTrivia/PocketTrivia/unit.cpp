@@ -6,8 +6,6 @@
 using std::string;
 using std::vector;
 
-Unit::Unit(int _id, string _name, vector<Chapter> _chapters) {
-	unit_id = _id;
+Unit::Unit(string _name) {
 	unit_name = _name;
-	chapters = _chapters;
 }

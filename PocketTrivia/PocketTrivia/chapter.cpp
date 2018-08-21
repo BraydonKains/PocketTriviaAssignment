@@ -10,10 +10,9 @@ using std::vector;
 using std::ifstream;
 using std::istringstream;
 
-Chapter::Chapter(int _id, string _name, string _questionSet) {
-	chapter_id = _id;
+Chapter::Chapter(string _name, string _question_set) {
 	chapter_name = _name;
-	questionSet = _questionSet;
+	question_set = _question_set;
 }
 
 Question* parseQuestion(string questionLine) {
@@ -54,18 +53,15 @@ Question* parseQuestion(string questionLine) {
 	return new Question(answers[0], answers[1], answers[2], answers[3], correct);
 }
 
-vector <Question*> Chapter::load() {
-	vector <Question*> questions;
-
+void Chapter::load() {
 	string line;
-	ifstream questionFile (this->questionSet);
+	ifstream questionFile (this->question_set);
 	
 	if (questionFile.is_open()) {
 		while (getline(questionFile, line)) {
-			questions.push_back(parseQuestion(line));
+			this->questions.push_back(parseQuestion(line));
 		}
 	}
-	questionFile.close();
 
-	return questions;
+	questionFile.close();
 }

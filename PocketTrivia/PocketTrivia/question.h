@@ -11,10 +11,11 @@ using namespace std;
 
 class Question {
 public:
+	Answer guess;
 	Answer correct;
 	map <Answer, string> options;
 
 	Question(string a, string b, string c, string d, Answer _correct);
 
-	bool guessAnswer(Answer answer);
+	bool guessAnswer(Answer _guess);
 };

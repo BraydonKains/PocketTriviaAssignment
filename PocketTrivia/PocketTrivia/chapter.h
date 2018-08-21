@@ -5,11 +5,12 @@
 
 class Chapter {
 public:
-	int chapter_id;
 	std::string chapter_name;
-	std::string questionSet;
-	
-	Chapter(int _id, std::string name, ::string _questionSet);
+	std::string question_set;
 
-	std::vector<Question*> load();
+	std::vector<Question*> questions;
+	
+	Chapter(std::string name, ::string _question_set);
+
+	void load();
 };

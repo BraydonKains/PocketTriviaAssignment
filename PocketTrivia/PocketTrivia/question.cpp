@@ -13,8 +13,9 @@ Question::Question(string a, string b, string c, string d, Answer _correct) {
 	correct = _correct;
 }
 
-bool Question::guessAnswer(Answer answer) {
-	if (answer == correct) {
+bool Question::guessAnswer(Answer _guess) {
+	guess = _guess;
+	if (guess == correct) {
 		return true;
 	}
 	return false;
