@@ -128,6 +128,7 @@
   <ItemGroup>
     <ClCompile Include="chapter.cpp" />
     <ClCompile Include="chapter_load_example.cpp" />
+    <ClCompile Include="cursor.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="question.cpp" />
@@ -135,9 +136,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="chapter.h" />
+    <ClInclude Include="cursor.h" />
     <ClInclude Include="enums.h" />
     <ClInclude Include="game.h" />
+    <ClInclude Include="menu_item.h" />
     <ClInclude Include="question.h" />
+    <ClInclude Include="test.h" />
     <ClInclude Include="unit.h" />
   </ItemGroup>
   <ItemGroup>
