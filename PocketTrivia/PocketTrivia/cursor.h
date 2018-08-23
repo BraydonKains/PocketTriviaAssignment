@@ -4,7 +4,9 @@
 
 class Cursor {
 public:
-	std::vector<MenuItem> options;
+	std::vector<MenuItem*> options;
+	int selected;
 
-	Cursor(std::vector<MenuItem> _options);
+	Cursor();
+	void set_options(std::vector<MenuItem*> _options);
 };

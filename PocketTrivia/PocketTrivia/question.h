@@ -1,21 +1,12 @@
 #pragma once
 #include <string>
-#include <map>
+#include <vector>
+#include "option.h"
 #include "enums.h"
-
-using std::string;
-using std::map;
-using std::pair;
-
-using namespace std;
 
 class Question {
 public:
-	Answer guess;
-	Answer correct;
-	map <Answer, string> options;
+	std::vector<Option*> options;
 
-	Question(string a, string b, string c, string d, Answer _correct);
-
-	bool guessAnswer(Answer _guess);
+	Question(std::string _a, std::string _b, std::string _c, std::string _d, Answer _correct);
 };

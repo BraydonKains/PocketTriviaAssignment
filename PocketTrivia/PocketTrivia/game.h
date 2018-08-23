@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include "unit.h"
+#include "cursor.h"
 
 class Game {
 public:
@@ -13,8 +14,12 @@ public:
 	Unit* current_unit;
 	Chapter* current_chapter;
 	Question* current_question;
+	Cursor* menu_cursor;
 
 	Game();
 
 	void init();
+	void set_unit_menu();
+	void set_chapter_menu();
+	void set_question_menu();
 };

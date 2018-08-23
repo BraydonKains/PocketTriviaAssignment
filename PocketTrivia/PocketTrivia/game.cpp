@@ -1,4 +1,5 @@
 #include <string>
+#include <vector>
 #include <fstream>
 #include <sstream>
 
@@ -7,12 +8,14 @@
 using std::ifstream;
 using std::istringstream;
 using std::string;
+using std::vector;
 
 Game::Game() {
 	score = 0;
+	menu_cursor = new Cursor();
 }
 
-Unit* parseUnit(string line) {
+Unit* parse_unit(string line) {
 	istringstream unitLine(line);
 	string element;
 	
@@ -49,9 +52,25 @@ void Game::init() {
 
 	if (unitsFile.is_open()) {
 		while (getline(unitsFile, line)) {
-			this->units.push_back(parseUnit(line));
+			this->units.push_back(parse_unit(line));
 		}
 	}
 	
 	unitsFile.close();
+}
+
+void Game::set_unit_menu() {
+	vector<MenuItem<Unit>*> new_options;
+	for (int i = 0; i < this->units.size(); i++) {
+		new_options.push_back(units.at(i)->to_menu_item());
+	}
+	this->menu_cursor->set_options(new_options);
+}
+
+void Game::set_chapter_menu()
+{
+}
+
+void Game::set_question_menu()
+{
 }

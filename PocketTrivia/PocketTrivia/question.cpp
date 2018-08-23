@@ -5,18 +5,9 @@
 
 using namespace std;
 
-Question::Question(string a, string b, string c, string d, Answer _correct) {
-	options.insert(pair <Answer, string> (Answer::A, a));
-	options.insert(pair <Answer, string>(Answer::B, b));
-	options.insert(pair <Answer, string>(Answer::C, c));
-	options.insert(pair <Answer, string>(Answer::D, d));
-	correct = _correct;
-}
-
-bool Question::guessAnswer(Answer _guess) {
-	guess = _guess;
-	if (guess == correct) {
-		return true;
-	}
-	return false;
+Question::Question(string _a, string _b, string _c, string _d, Answer _correct) {
+	options.push_back(new Option(A, _a, _correct == A));
+	options.push_back(new Option(B, _b, _correct == B));
+	options.push_back(new Option(C, _c, _correct == C));
+	options.push_back(new Option(D, _d, _correct == D));
 }

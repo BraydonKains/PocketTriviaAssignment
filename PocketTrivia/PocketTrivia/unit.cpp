@@ -9,3 +9,8 @@ using std::vector;
 Unit::Unit(string _name) {
 	name = _name;
 }
+
+MenuItem<Unit> Unit::to_menu_item()
+{
+	return MenuItem<Unit>();
+}

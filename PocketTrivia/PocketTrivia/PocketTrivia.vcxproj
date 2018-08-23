@@ -131,6 +131,8 @@
     <ClCompile Include="cursor.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="menu_item.cpp" />
+    <ClCompile Include="option.cpp" />
     <ClCompile Include="question.cpp" />
     <ClCompile Include="unit.cpp" />
   </ItemGroup>
@@ -141,7 +143,7 @@
     <ClInclude Include="game.h" />
     <ClInclude Include="menu_item.h" />
     <ClInclude Include="question.h" />
-    <ClInclude Include="test.h" />
+    <ClInclude Include="option.h" />
     <ClInclude Include="unit.h" />
   </ItemGroup>
   <ItemGroup>

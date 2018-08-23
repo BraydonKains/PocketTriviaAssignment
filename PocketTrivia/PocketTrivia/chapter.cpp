@@ -9,13 +9,14 @@
 using std::vector;
 using std::ifstream;
 using std::istringstream;
+using std::string;
 
 Chapter::Chapter(string _name, string _question_set) {
 	name = _name;
 	question_set = _question_set;
 }
 
-Question* parseQuestion(string questionLine) {
+Question* parse_question(string questionLine) {
 	std::string questionText;
 	std::string answers[4];
 	Answer correct;
@@ -59,7 +60,7 @@ void Chapter::load() {
 	
 	if (questionFile.is_open()) {
 		while (getline(questionFile, line)) {
-			this->questions.push_back(parseQuestion(line));
+			this->questions.push_back(parse_question(line));
 		}
 	}
 

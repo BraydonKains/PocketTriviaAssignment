@@ -1,8 +1,15 @@
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_font.h>
+#include "game.h"
 
 int main()
 {
+	Game main_game;
+	main_game.init();
+	main_game.set_unit_menu();
+
+	Unit* x = (Unit*) main_game.menu_cursor->options.at(0);
+
 	al_init();
 	al_init_font_addon();
 	ALLEGRO_DISPLAY* display = al_create_display(800, 600);
