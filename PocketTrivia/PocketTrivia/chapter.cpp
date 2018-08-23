@@ -11,7 +11,7 @@ using std::ifstream;
 using std::istringstream;
 
 Chapter::Chapter(string _name, string _question_set) {
-	chapter_name = _name;
+	name = _name;
 	question_set = _question_set;
 }
 

@@ -2,10 +2,10 @@
 #include <string>
 #include <vector>
 #include "question.h"
+#include "menu_item.h"
 
-class Chapter {
+class Chapter: public MenuItem {
 public:
-	std::string chapter_name;
 	std::string question_set;
 
 	std::vector<Question*> questions;

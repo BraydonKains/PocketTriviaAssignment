@@ -7,5 +7,5 @@ using std::string;
 using std::vector;
 
 Unit::Unit(string _name) {
-	unit_name = _name;
+	name = _name;
 }

@@ -3,9 +3,8 @@
 #include <vector>
 #include "chapter.h"
 
-class Unit {
+class Unit : public MenuItem {
 public:
-	std::string unit_name;
 	std::vector<Chapter*> chapters;
 
 	Unit(std::string name);
