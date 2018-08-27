@@ -1,3 +1,5 @@
+#include <allegro5/allegro.h>
+#include <allegro5/allegro_font.h>
 #include <string>
 #include <vector>
 #include <fstream>
@@ -12,7 +14,7 @@ using std::vector;
 
 Game::Game() {
 	score = 0;
-	menu_cursor = new Cursor();
+	state = Start;
 }
 
 Unit* parse_unit(string line) {
@@ -48,29 +50,53 @@ Unit* parse_unit(string line) {
 
 void Game::init() {
 	string line;
-	ifstream unitsFile (this->unit_defs);
+	ifstream unitsFile (unit_defs);
 
 	if (unitsFile.is_open()) {
 		while (getline(unitsFile, line)) {
-			this->units.push_back(parse_unit(line));
+			units.push_back(parse_unit(line));
 		}
 	}
 	
 	unitsFile.close();
 }
 
-void Game::set_unit_menu() {
-	vector<MenuItem<Unit>*> new_options;
-	for (int i = 0; i < this->units.size(); i++) {
-		new_options.push_back(units.at(i)->to_menu_item());
+void Game::to_state(State next_state) {
+	switch (next_state) {
+	case Start:
+		init();
+	case UnitSelect:
+		set_unit_cursor();
 	}
-	this->menu_cursor->set_options(new_options);
+
+	state = next_state;
 }
 
-void Game::set_chapter_menu()
-{
+void Game::set_unit_cursor() {
+	unit_cursor.options = units;
 }
 
-void Game::set_question_menu()
+void Game::set_chapter_cursor() {
+}
+
+void Game::set_option_cursor() {
+}
+
+//MOST IMPORTANT FUNCTION SO IT'S AT THE BOTTOM
+void Game::run()
 {
+		Game main_game;
+		main_game.init();
+
+
+
+		al_init();
+		al_init_font_addon();
+		ALLEGRO_DISPLAY* display = al_create_display(800, 600);
+		ALLEGRO_FONT* font = al_create_builtin_font();
+		al_clear_to_color(al_map_rgb(0, 0, 0));
+		al_draw_text(font, al_map_rgb(255, 255, 255), 400, 300, ALLEGRO_ALIGN_CENTER, "Welcome to Allegro!");
+		al_flip_display();
+		al_rest(5.0);
+
 }

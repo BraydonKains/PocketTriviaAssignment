@@ -1,12 +1,15 @@
 #pragma once
 #include <vector>
-#include "menu_item.h"
 
+template <class T>
 class Cursor {
 public:
-	std::vector<MenuItem*> options;
+	std::vector<T> options;
 	int selected;
+	bool active;
 
 	Cursor();
-	void set_options(std::vector<MenuItem*> _options);
+
+	activate(std::vector<T> options);
+	deactivate();
 };

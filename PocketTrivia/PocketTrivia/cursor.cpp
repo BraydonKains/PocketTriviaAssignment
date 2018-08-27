@@ -1,15 +1,24 @@
 #include <vector>
 #include "cursor.h"
-#include "menu_item.h"
 
 using std::vector;
 
-Cursor::Cursor() {
-	selected = 0;
+template<class T>
+Cursor<T>::Cursor()
+{
+	active = false;
 }
 
-void Cursor::set_options(std::vector<MenuItem*> _options){
+template<class T>
+Cursor<T>::activate(std::vector<T> _options)
+{
 	options = _options;
-
 	selected = 0;
+	active = true;
+}
+
+template<class T>
+Cursor<T>::deactivate()
+{
+	active = false;
 }
