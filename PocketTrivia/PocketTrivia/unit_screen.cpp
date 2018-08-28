@@ -14,14 +14,8 @@ UnitScreen::UnitScreen(vector<Unit*> _units) {
 	all = false;
 }
 
-void UnitScreen::run(ALLEGRO_DISPLAY* display, ALLEGRO_FONT* font) {
-	int v_offset = 50;
-	
-	for (int i = 0; i < menu.options.size(); i++) {
-		al_draw_text(font, al_map_rgb(255, 255, 255), 400, 300 + v_offset, ALLEGRO_ALIGN_CENTER, menu.options.at(i)->name.c_str());
-	}
-
-	al_flip_display();
+void UnitScreen::run(ALLEGRO_FONT* font) {
+	menu.display(100, 100, 5, font);
 }
 
 void UnitScreen::back() {
@@ -33,7 +27,6 @@ void UnitScreen::cont() {
 		next_state = AskQuestionAllUnits;
 	}
 	else {
-		selected = menu.options.at(menu.selected);
 		next_state = ChapterSelect;
 	}
 }

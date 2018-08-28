@@ -1,4 +1,6 @@
 #pragma once
+#include <allegro5/allegro.h>
+#include <allegro5/allegro_font.h>
 #include <vector>
 #include <string>
 #include "unit.h"
@@ -10,7 +12,10 @@
 class Game {
 public:
 	const std::string unit_defs = "units.txt";
-	
+	//Allegro elements
+	ALLEGRO_FONT* font;
+
+	//Game elements
 	State state;
 
 	int score;

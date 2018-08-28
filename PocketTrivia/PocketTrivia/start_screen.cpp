@@ -15,18 +15,10 @@ StartScreen::StartScreen() {
 	menu.activate(menu_options);
 }
 
-void StartScreen::run(ALLEGRO_DISPLAY * display, ALLEGRO_FONT * font) {
-	int v_offset = 50;
-
-	for (int i = 0; i < menu.options.size(); i++) {
-		al_draw_text(font, al_map_rgb(255, 255, 255), 400, 300 + v_offset, ALLEGRO_ALIGN_CENTER, menu.options.at(i).c_str());
-	}
-
+void StartScreen::run(ALLEGRO_FONT * font) {
+	menu.display(320.0, 240.0, 20.0, font);
 	al_flip_display();
-
-	while (1) {
-		int x;
-	}
+	while (1) {}
 }
 
 void StartScreen::back() {

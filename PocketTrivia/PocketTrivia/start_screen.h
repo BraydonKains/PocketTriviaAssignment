@@ -13,7 +13,7 @@ public:
 
 	StartScreen();
 	
-	void run(ALLEGRO_DISPLAY * display, ALLEGRO_FONT* font);
+	void run(ALLEGRO_FONT* font);
 	void back();
 	void cont();
 };
