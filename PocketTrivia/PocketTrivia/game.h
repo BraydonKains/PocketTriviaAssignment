@@ -5,7 +5,7 @@
 #include "chapter.h"
 #include "question.h"
 #include "cursor.h"
-
+#include "screen.h"
 
 class Game {
 public:
@@ -17,11 +17,9 @@ public:
 
 	std::vector <Unit*> units;
 	Unit* current_unit;
-	Cursor<Unit*> unit_cursor;
 
 	Chapter* current_chapter;
-	Cursor<Chapter*> chapter_cursor;
-	
+
 	Question* current_question;
 
 	Game();
@@ -31,7 +29,4 @@ public:
 
 private:
 	void to_state(State next_state);
-	void set_unit_cursor();
-	void set_chapter_cursor();
-	void set_option_cursor();
 };

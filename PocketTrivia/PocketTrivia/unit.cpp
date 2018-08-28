@@ -10,7 +10,6 @@ Unit::Unit(string _name) {
 	name = _name;
 }
 
-MenuItem<Unit> Unit::to_menu_item()
-{
-	return MenuItem<Unit>();
+void Unit::set_chapters(vector<Chapter*> _chapters) {
+	chapters = _chapters;
 }

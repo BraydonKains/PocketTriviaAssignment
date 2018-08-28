@@ -10,6 +10,6 @@ public:
 
 	Cursor();
 
-	activate(std::vector<T> options);
-	deactivate();
+	void activate(std::vector<T> options);
+	void deactivate();
 };

@@ -5,9 +5,10 @@
 
 class Unit {
 public:
+	std::string name;
 	std::vector<Chapter*> chapters;
 
-	Unit(std::string name);
+	Unit(std::string _name);
 
-	MenuItem<Unit> to_menu_item();
+	void set_chapters(std::vector<Chapter*> _chapters);
 };

@@ -1,19 +1,18 @@
 #pragma once
+#include <allegro5/allegro.h>
+#include <allegro5/allegro_font.h>
 #include <vector>
+#include <string>
 
 #include "screen.h"
 #include "cursor.h"
-#include "unit.h"
 
-class UnitScreen : public Screen {
+class StartScreen : public Screen {
 public:
-	Cursor<Unit*> menu;
+	Cursor<std::string> menu;
 
-	bool all;
-	Unit* selected;
-
-	UnitScreen(std::vector<Unit*> _units);
-
+	StartScreen();
+	
 	void run(ALLEGRO_DISPLAY * display, ALLEGRO_FONT* font);
 	void back();
 	void cont();

@@ -2,9 +2,8 @@
 #include <string>
 #include <vector>
 #include "enums.h"
-#include "menu_item.h"
 
-class Option : public MenuItem {
+class Option {
 public:
 	Answer answer;
 	std::string text;

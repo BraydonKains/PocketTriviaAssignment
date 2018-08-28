@@ -6,6 +6,8 @@
 #include <sstream>
 
 #include "game.h"
+#include "start_screen.h"
+#include "unit_screen.h"
 
 using std::ifstream;
 using std::istringstream;
@@ -64,39 +66,24 @@ void Game::init() {
 void Game::to_state(State next_state) {
 	switch (next_state) {
 	case Start:
-		init();
-	case UnitSelect:
-		set_unit_cursor();
+		init();		
 	}
 
 	state = next_state;
 }
 
-void Game::set_unit_cursor() {
-	unit_cursor.options = units;
-}
-
-void Game::set_chapter_cursor() {
-}
-
-void Game::set_option_cursor() {
-}
-
 //MOST IMPORTANT FUNCTION SO IT'S AT THE BOTTOM
-void Game::run()
-{
-		Game main_game;
-		main_game.init();
-
-
-
-		al_init();
-		al_init_font_addon();
-		ALLEGRO_DISPLAY* display = al_create_display(800, 600);
-		ALLEGRO_FONT* font = al_create_builtin_font();
-		al_clear_to_color(al_map_rgb(0, 0, 0));
-		al_draw_text(font, al_map_rgb(255, 255, 255), 400, 300, ALLEGRO_ALIGN_CENTER, "Welcome to Allegro!");
-		al_flip_display();
-		al_rest(5.0);
-
+void Game::run() {
+	al_init();
+	al_init_font_addon();
+	ALLEGRO_DISPLAY* display = al_create_display(640, 480);
+	ALLEGRO_FONT* font = al_create_builtin_font();
+	al_clear_to_color(al_map_rgb(0, 0, 0));
+	while(state != Exit) {
+		switch (state) {
+		case Start:
+			StartScreen start_screen;
+			start_screen.run(display, font);
+		}
+	}
 }

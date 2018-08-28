@@ -10,8 +10,9 @@ enum State {
 	Start,
 	UnitSelect,
 	ChapterSelect,
-	AskQuestion,
-	Result,
+	AskQuestionNormal,
+	AskQuestionAllChapters,
+	AskQuestionAllUnits,
 	FinalScore,
 	Exit
 };
