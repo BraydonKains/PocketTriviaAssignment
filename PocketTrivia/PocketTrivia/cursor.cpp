@@ -33,12 +33,13 @@ void Cursor<T>::deactivate()
 }
 
 template<class T>
-void Cursor<T>::display(float _x_start, float _y_start, float _y_offset, ALLEGRO_FONT* font) {
+void Cursor<T>::draw(float _x_start, float _y_start, float _y_offset, ALLEGRO_FONT* _font) {
 	vector<string> items_text = get_item_strings();
 	
 	x_start = _x_start;
 	y_start = _y_start;
 	y_offset = _y_offset;
+	font = _font;
 
 	for (int i = 0; i < items_text.size(); i++) {
 		al_draw_text(font, al_map_rgb(255, 255, 255), x_start, y_start + (y_offset*i), ALLEGRO_ALIGN_LEFT, items_text.at(i).c_str());
@@ -48,16 +49,49 @@ void Cursor<T>::display(float _x_start, float _y_start, float _y_offset, ALLEGRO
 }
 
 template<class T>
+void Cursor<T>::down()
+{
+	if (selected < items.size() - 1) {
+		selected++;
+		redraw();
+	}
+}
+
+template<class T>
+void Cursor<T>::up()
+{
+	if (selected > 0) {
+		selected--;
+		redraw();
+	}
+}
+
+template<class T>
+T Cursor<T>::get_selected() {
+	return items.at(selected);
+}
+
+template<class T>
+void Cursor<T>::redraw()
+{
+	draw(x_start, y_start, y_offset, font);
+}
+
+template<class T>
 void Cursor<T>::update_selector() {
 	ALLEGRO_COLOR white = al_map_rgb(255, 255, 255);
-	float offset = y_offset*selected;
+	float offset = y_offset*(selected);
 	al_draw_filled_triangle(x_start-5, y_start+offset, x_start-5, y_start+4+offset, x_start-1, y_start+2+offset, white);
 }
 
 template Cursor<string>::Cursor();
 template void Cursor<string>::activate(std::vector<string> _options);
 template void Cursor<string>::deactivate();
-template void Cursor<string>::display(float x_start, float y_start, float _y_offset, ALLEGRO_FONT* font);
+template void Cursor<string>::draw(float x_start, float y_start, float _y_offset, ALLEGRO_FONT* font);
+template void Cursor<string>::redraw();
+template void Cursor<string>::up();
+template void Cursor<string>::down();
+template string Cursor<string>::get_selected();
 vector<string> Cursor<string>::get_item_strings() {
 	return items;
 }
@@ -65,7 +99,11 @@ vector<string> Cursor<string>::get_item_strings() {
 template Cursor<Unit*>::Cursor();
 template void Cursor<Unit*>::activate(std::vector<Unit*> _options);
 template void Cursor<Unit*>::deactivate();
-template void Cursor<Unit*>::display(float x_start, float y_start, float _y_offset, ALLEGRO_FONT* font);
+template void Cursor<Unit*>::draw(float x_start, float y_start, float _y_offset, ALLEGRO_FONT* font);
+template void Cursor<Unit*>::redraw();
+template void Cursor<Unit*>::up();
+template void Cursor<Unit*>::down();
+template Unit* Cursor<Unit*>::get_selected();
 vector<string> Cursor<Unit*>::get_item_strings() {
 	vector<string> items_text;
 	for (int i = 0; i < items.size(); i++) {
@@ -77,7 +115,11 @@ vector<string> Cursor<Unit*>::get_item_strings() {
 template Cursor<Chapter*>::Cursor();
 template void Cursor<Chapter*>::activate(std::vector<Chapter*> _options);
 template void Cursor<Chapter*>::deactivate();
-template void Cursor<Chapter*>::display(float x_start, float y_start, float _y_offset, ALLEGRO_FONT* font);
+template void Cursor<Chapter*>::draw(float x_start, float y_start, float _y_offset, ALLEGRO_FONT* font);
+template void Cursor<Chapter*>::redraw();
+template void Cursor<Chapter*>::up();
+template void Cursor<Chapter*>::down();
+template Chapter* Cursor<Chapter*>::get_selected();
 vector<string> Cursor<Chapter*>::get_item_strings() {
 	vector<string> items_text;
 	for (int i = 0; i < items.size(); i++) {
@@ -89,7 +131,11 @@ vector<string> Cursor<Chapter*>::get_item_strings() {
 template Cursor<Option*>::Cursor();
 template void Cursor<Option*>::activate(std::vector<Option*> _options);
 template void Cursor<Option*>::deactivate();
-template void Cursor<Option*>::display(float x_start, float y_start, float _y_offset, ALLEGRO_FONT* font);
+template void Cursor<Option*>::draw(float x_start, float y_start, float _y_offset, ALLEGRO_FONT* font);
+template void Cursor<Option*>::redraw();
+template void Cursor<Option*>::up();
+template void Cursor<Option*>::down();
+template Option* Cursor<Option*>::get_selected();
 vector<string> Cursor<Option*>::get_item_strings() {
 	vector<string> items_text;
 	for (int i = 0; i < items.size(); i++) {

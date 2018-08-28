@@ -13,6 +13,8 @@ int main()
 	al_clear_to_color(al_map_rgb(0, 0, 0));
 	al_init_primitives_addon();
 	al_init_image_addon();
+	
+	al_install_keyboard();
 
 	Game main_game;
 	main_game.init();

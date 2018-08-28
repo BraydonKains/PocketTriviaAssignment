@@ -15,7 +15,7 @@ UnitScreen::UnitScreen(vector<Unit*> _units) {
 }
 
 void UnitScreen::run(ALLEGRO_FONT* font) {
-	menu.display(100, 100, 5, font);
+	menu.draw(100, 100, 5, font);
 }
 
 void UnitScreen::back() {

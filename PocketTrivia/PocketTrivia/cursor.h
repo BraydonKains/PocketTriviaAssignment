@@ -12,13 +12,18 @@ public:
 
 	void activate(std::vector<T> _items);
 	void deactivate();
-	void display(float _x_start, float _y_start, float _y_offset, ALLEGRO_FONT* font);
+	void draw(float _x_start, float _y_start, float _y_offset, ALLEGRO_FONT* _font);
+	void up();
+	void down();
+	T get_selected();
 
 private:
 	float x_start;
 	float y_start;
 	int y_offset;
+	ALLEGRO_FONT* font;
 
 	std::vector<std::string> get_item_strings();
 	void update_selector();
+	void redraw();
 };
