@@ -9,5 +9,5 @@ public:
 	std::string text;
 	bool correct;
 
-	Option(Answer _answer, std::string _text, bool correct);
+	Option(Answer _answer, std::string _text, bool _correct);
 };

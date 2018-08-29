@@ -4,9 +4,11 @@
 #include "question.h"
 #include "option.h"
 
-using namespace std;
+using std::string;
 
-Question::Question(string _a, string _b, string _c, string _d, Answer _correct) {
+Question::Question(string _question_text, string _a, string _b, string _c, string _d, Answer _correct) {
+	question_text = _question_text;
+
 	options.push_back(new Option(A, _a, _correct == A));
 	options.push_back(new Option(B, _b, _correct == B));
 	options.push_back(new Option(C, _c, _correct == C));

@@ -138,6 +138,7 @@
     <ClCompile Include="option.cpp" />
     <ClCompile Include="question.cpp" />
     <ClCompile Include="question_screen.cpp" />
+    <ClCompile Include="result_screen.cpp" />
     <ClCompile Include="start_screen.cpp" />
     <ClCompile Include="unit.cpp" />
     <ClCompile Include="unit_screen.cpp" />
@@ -151,6 +152,7 @@
     <ClInclude Include="question.h" />
     <ClInclude Include="option.h" />
     <ClInclude Include="question_screen.h" />
+    <ClInclude Include="result_screen.h" />
     <ClInclude Include="screen.h" />
     <ClInclude Include="start_screen.h" />
     <ClInclude Include="unit.h" />

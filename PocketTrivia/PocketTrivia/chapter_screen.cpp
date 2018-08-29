@@ -10,6 +10,9 @@ using std::vector;
 ChapterScreen::ChapterScreen(Unit* _unit) {
 	background = "chapter_screen.bmp";
 	unit = _unit;
+	for (int i = 0; i < unit->chapters.size(); i++) {
+		unit->chapters.at(i)->load();
+	}
 	menu.activate(unit->chapters);
 	all = false;
 }
@@ -48,6 +51,7 @@ void ChapterScreen::run(ALLEGRO_FONT* font) {
 				exit_screen = true;
 				break;
 			}
+			al_flip_display();
 		}
 	}
 }

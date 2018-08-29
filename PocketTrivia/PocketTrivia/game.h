@@ -24,9 +24,7 @@ public:
 	Unit* current_unit;
 
 	Chapter* current_chapter;
-
-	Question* current_question;
-
+	
 	Game();
 
 	void init();
@@ -34,4 +32,5 @@ public:
 
 private:
 	void to_state(State next_state);
+	void reset();
 };

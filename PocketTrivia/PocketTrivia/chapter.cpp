@@ -51,7 +51,7 @@ Question* parse_question(string questionLine) {
 		correct = D;
 	}
 	
-	return new Question(answers[0], answers[1], answers[2], answers[3], correct);
+	return new Question(questionText, answers[0], answers[1], answers[2], answers[3], correct);
 }
 
 void Chapter::load() {

@@ -11,6 +11,7 @@
 #include "unit_screen.h"
 #include "chapter_screen.h"
 #include "question_screen.h"
+#include "result_screen.h"
 
 using std::ifstream;
 using std::istringstream;
@@ -35,21 +36,21 @@ Unit* parse_unit(string line) {
 
 	string chapter;
 	istringstream chapters(element);
-	while (getline(chapters, chapter, '?')) {
+	while (getline(chapters, chapter, ';')) {
 		string question_set;
 		string chapter_name;
 		string chapter_element;
 		istringstream chapter_stream(chapter);
 		//get chapter file
-		getline(chapter_stream, chapter_element, ';');
+		getline(chapter_stream, chapter_element, '?');
 		question_set = chapter_element;
 		//get chapter name
-		getline(chapter_stream, chapter_element, ';');
+		getline(chapter_stream, chapter_element, '?');
 		chapter_name = chapter_element;
 
 		unit->chapters.push_back(new Chapter(chapter_name, question_set));
 	}
-
+	
 	return unit;
 }
 
@@ -80,10 +81,17 @@ void Game::to_state(State next_state) {
 	state = next_state;
 }
 
+void Game::reset() {
+	score = 0;
+	current_unit = nullptr;
+	current_chapter = nullptr;
+}
+
 //MOST IMPORTANT FUNCTION SO IT'S AT THE BOTTOM
 void Game::run() {
 	while(state != Exit) {
 		if (state == Start) {
+			reset();
 			StartScreen start_screen;
 			start_screen.run(font);
 			state = start_screen.next_state;
@@ -109,7 +117,6 @@ void Game::run() {
 				Unit* ask_unit = units.at(i);
 				for (int j = 0; j < ask_unit->chapters.size(); j++) {
 					Chapter* ask_chapter = ask_unit->chapters.at(j);
-					ask_chapter->load();
 					for (int k = 0; k < ask_chapter->questions.size(); k++) {
 						QuestionScreen ask_screen(ask_chapter->questions.at(k));
 						ask_screen.run(font);
@@ -117,17 +124,18 @@ void Game::run() {
 					}
 				}
 			}
+			state = FinalScore;
 		}
 		else if (state == AskQuestionAllChapters) {
 			for (int j = 0; j < current_unit->chapters.size(); j++) {
 				Chapter* ask_chapter = current_unit->chapters.at(j);
-				ask_chapter->load();
 				for (int k = 0; k < ask_chapter->questions.size(); k++) {
 					QuestionScreen ask_screen(ask_chapter->questions.at(k));
 					ask_screen.run(font);
 					score += ask_screen.points;
 				}
 			}
+			state = FinalScore;
 		}
 		else if (state == AskQuestionNormal) {
 			for (int k = 0; k < current_chapter->questions.size(); k++) {
@@ -135,8 +143,14 @@ void Game::run() {
 				ask_screen.run(font);
 				score += ask_screen.points;
 			}
+			state = FinalScore;
 		}
 		al_clear_to_color(al_map_rgb(0, 0, 0));
 		al_flip_display();
+		if (state == FinalScore) {
+			ResultScreen result_screen(score);
+			result_screen.run(font);
+			state = result_screen.next_state;
+		}
 	}
 }

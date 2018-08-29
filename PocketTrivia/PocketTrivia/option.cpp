@@ -6,8 +6,9 @@
 using std::string;
 using std::vector;
 
-Option::Option(Answer _answer, std::string _text, bool correct)
+Option::Option(Answer _answer, std::string _text, bool _correct)
 {
 	answer = _answer;
 	text = _text;
+	correct = _correct;
 }

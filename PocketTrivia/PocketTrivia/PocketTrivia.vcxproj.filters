@@ -69,6 +69,9 @@
     <ClCompile Include="question_screen.cpp">
       <Filter>Source Files\ScreensImplement</Filter>
     </ClCompile>
+    <ClCompile Include="result_screen.cpp">
+      <Filter>Source Files\ScreensImplement</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="screen.h">
@@ -105,6 +108,9 @@
       <Filter>Header Files\PocketTrivia</Filter>
     </ClInclude>
     <ClInclude Include="question_screen.h">
+      <Filter>Header Files\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="result_screen.h">
       <Filter>Header Files\Screens</Filter>
     </ClInclude>
   </ItemGroup>
