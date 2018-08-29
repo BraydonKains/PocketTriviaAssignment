@@ -65,12 +65,14 @@ void Game::init() {
 	unitsFile.close();	
 
 	font = al_create_builtin_font();
+	
 }
 
 void Game::to_state(State next_state) {
 	switch (next_state) {
 	case Start:
-		init();		
+		init();
+		break;
 	}
 
 	state = next_state;
@@ -78,13 +80,21 @@ void Game::to_state(State next_state) {
 
 //MOST IMPORTANT FUNCTION SO IT'S AT THE BOTTOM
 void Game::run() {
-	
 	while(state != Exit) {
-		switch (state) {
-		case Start:
+		if (state == Start) {
 			StartScreen start_screen;
 			start_screen.run(font);
-			
+			state = start_screen.next_state;
 		}
+		if(state == UnitSelect) {
+			UnitScreen unit_screen(units);
+			unit_screen.run(font);
+			if (unit_screen.next_state == ChapterSelect) {
+				current_unit = unit_screen.menu.get_selected();
+			}
+			state = unit_screen.next_state;
+		}
+		al_clear_to_color(al_map_rgb(0, 0, 0));
+		al_flip_display();
 	}
 }

@@ -15,7 +15,42 @@ UnitScreen::UnitScreen(vector<Unit*> _units) {
 }
 
 void UnitScreen::run(ALLEGRO_FONT* font) {
-	menu.draw(100, 100, 5, font);
+	ALLEGRO_EVENT_QUEUE* event_queue = NULL;
+	event_queue = al_create_event_queue();
+	al_register_event_source(event_queue, al_get_keyboard_event_source());
+
+	menu.draw(320.0, 240.0, 20.0, font);
+	al_flip_display();
+	bool exit_screen = false;
+	while (!exit_screen) {
+		ALLEGRO_EVENT ev;
+		al_wait_for_event(event_queue, &ev);
+
+		if (ev.type == ALLEGRO_EVENT_KEY_DOWN) {
+			switch (ev.keyboard.keycode) {
+			case ALLEGRO_KEY_UP:
+				menu.up();
+				break;
+			case ALLEGRO_KEY_DOWN:
+				menu.down();
+				break;
+			case ALLEGRO_KEY_ENTER:
+				cont();
+				exit_screen = true;
+				break;
+			case ALLEGRO_KEY_SPACE:
+				all = true;
+				cont();
+				exit_screen = true;
+				break;
+			case ALLEGRO_KEY_BACKSPACE:
+				back();
+				exit_screen = true;
+				break;
+			}
+		}
+	}
+	al_clear_to_color(al_map_rgb(0, 0, 0));
 }
 
 void UnitScreen::back() {

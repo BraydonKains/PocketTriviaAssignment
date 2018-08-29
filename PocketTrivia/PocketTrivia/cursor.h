@@ -20,7 +20,7 @@ public:
 private:
 	float x_start;
 	float y_start;
-	int y_offset;
+	float y_offset;
 	ALLEGRO_FONT* font;
 
 	std::vector<std::string> get_item_strings();

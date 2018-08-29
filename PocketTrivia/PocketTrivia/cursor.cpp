@@ -46,6 +46,8 @@ void Cursor<T>::draw(float _x_start, float _y_start, float _y_offset, ALLEGRO_FO
 	}
 
 	update_selector();
+
+	al_flip_display();
 }
 
 template<class T>
@@ -74,14 +76,22 @@ T Cursor<T>::get_selected() {
 template<class T>
 void Cursor<T>::redraw()
 {
+	al_clear_to_color(al_map_rgb(0, 0, 0));
 	draw(x_start, y_start, y_offset, font);
 }
 
 template<class T>
 void Cursor<T>::update_selector() {
 	ALLEGRO_COLOR white = al_map_rgb(255, 255, 255);
-	float offset = y_offset*(selected);
-	al_draw_filled_triangle(x_start-5, y_start+offset, x_start-5, y_start+4+offset, x_start-1, y_start+2+offset, white);
+	float offset = y_offset*selected;
+	float x1 = x_start - 5;
+	float y1 = y_start + offset;
+	float x2 = x_start - 5;
+	float y2 = y_start + 5 + offset;
+	float x3 = x_start - 1;
+	float y3 = y_start + 2.5 + offset;
+
+	al_draw_filled_triangle(x1, y1, x2, y2, x3, y3, white);
 }
 
 template Cursor<string>::Cursor();
@@ -92,6 +102,7 @@ template void Cursor<string>::redraw();
 template void Cursor<string>::up();
 template void Cursor<string>::down();
 template string Cursor<string>::get_selected();
+template void Cursor<string>::update_selector();
 vector<string> Cursor<string>::get_item_strings() {
 	return items;
 }

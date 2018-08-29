@@ -32,14 +32,18 @@ void StartScreen::run(ALLEGRO_FONT * font) {
 			switch (ev.keyboard.keycode) {
 			case ALLEGRO_KEY_UP:
 				menu.up();
+				break;
 			case ALLEGRO_KEY_DOWN:
 				menu.down();
-			case ALLEGRO_KEY_SELECT:
+				break;
+			case ALLEGRO_KEY_ENTER:
 				cont();
 				exit_screen = true;
+				break;
 			case ALLEGRO_KEY_BACKSPACE:
 				back();
 				exit_screen = true;
+				break;
 			}
 		}
 	}
@@ -51,5 +55,10 @@ void StartScreen::back() {
 }
 
 void StartScreen::cont() {
-	next_state = UnitSelect;
+	if (menu.get_selected() == "Start") {
+		next_state = UnitSelect;
+	}
+	else {
+		next_state = Exit;
+	}
 }
