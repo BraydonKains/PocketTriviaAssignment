@@ -50,7 +50,6 @@ void UnitScreen::run(ALLEGRO_FONT* font) {
 			}
 		}
 	}
-	al_clear_to_color(al_map_rgb(0, 0, 0));
 }
 
 void UnitScreen::back() {

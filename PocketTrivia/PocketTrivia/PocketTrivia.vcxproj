@@ -131,22 +131,26 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="chapter.cpp" />
+    <ClCompile Include="chapter_screen.cpp" />
     <ClCompile Include="cursor.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="option.cpp" />
     <ClCompile Include="question.cpp" />
+    <ClCompile Include="question_screen.cpp" />
     <ClCompile Include="start_screen.cpp" />
     <ClCompile Include="unit.cpp" />
     <ClCompile Include="unit_screen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="chapter.h" />
+    <ClInclude Include="chapter_screen.h" />
     <ClInclude Include="cursor.h" />
     <ClInclude Include="enums.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="question.h" />
     <ClInclude Include="option.h" />
+    <ClInclude Include="question_screen.h" />
     <ClInclude Include="screen.h" />
     <ClInclude Include="start_screen.h" />
     <ClInclude Include="unit.h" />

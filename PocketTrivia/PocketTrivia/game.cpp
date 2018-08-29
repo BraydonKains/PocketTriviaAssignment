@@ -9,6 +9,8 @@
 #include "game.h"
 #include "start_screen.h"
 #include "unit_screen.h"
+#include "chapter_screen.h"
+#include "question_screen.h"
 
 using std::ifstream;
 using std::istringstream;
@@ -86,13 +88,53 @@ void Game::run() {
 			start_screen.run(font);
 			state = start_screen.next_state;
 		}
-		if(state == UnitSelect) {
+		else if(state == UnitSelect) {
 			UnitScreen unit_screen(units);
 			unit_screen.run(font);
 			if (unit_screen.next_state == ChapterSelect) {
 				current_unit = unit_screen.menu.get_selected();
 			}
 			state = unit_screen.next_state;
+		}
+		else if (state == ChapterSelect) {
+			ChapterScreen chapter_screen(current_unit);
+			chapter_screen.run(font);
+			if (chapter_screen.next_state == AskQuestionNormal) {
+				current_chapter = chapter_screen.menu.get_selected();
+			}
+			state = chapter_screen.next_state;
+		}
+		else if (state == AskQuestionAllUnits) {
+			for (int i = 0; i < units.size(); i++) {
+				Unit* ask_unit = units.at(i);
+				for (int j = 0; j < ask_unit->chapters.size(); j++) {
+					Chapter* ask_chapter = ask_unit->chapters.at(j);
+					ask_chapter->load();
+					for (int k = 0; k < ask_chapter->questions.size(); k++) {
+						QuestionScreen ask_screen(ask_chapter->questions.at(k));
+						ask_screen.run(font);
+						score += ask_screen.points;
+					}
+				}
+			}
+		}
+		else if (state == AskQuestionAllChapters) {
+			for (int j = 0; j < current_unit->chapters.size(); j++) {
+				Chapter* ask_chapter = current_unit->chapters.at(j);
+				ask_chapter->load();
+				for (int k = 0; k < ask_chapter->questions.size(); k++) {
+					QuestionScreen ask_screen(ask_chapter->questions.at(k));
+					ask_screen.run(font);
+					score += ask_screen.points;
+				}
+			}
+		}
+		else if (state == AskQuestionNormal) {
+			for (int k = 0; k < current_chapter->questions.size(); k++) {
+				QuestionScreen ask_screen(current_chapter->questions.at(k));
+				ask_screen.run(font);
+				score += ask_screen.points;
+			}
 		}
 		al_clear_to_color(al_map_rgb(0, 0, 0));
 		al_flip_display();

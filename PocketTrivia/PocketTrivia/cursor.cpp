@@ -46,8 +46,6 @@ void Cursor<T>::draw(float _x_start, float _y_start, float _y_offset, ALLEGRO_FO
 	}
 
 	update_selector();
-
-	al_flip_display();
 }
 
 template<class T>

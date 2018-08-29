@@ -45,9 +45,9 @@ void StartScreen::run(ALLEGRO_FONT * font) {
 				exit_screen = true;
 				break;
 			}
+			al_flip_display();
 		}
 	}
-	al_clear_to_color(al_map_rgb(0, 0, 0));
 }
 
 void StartScreen::back() {

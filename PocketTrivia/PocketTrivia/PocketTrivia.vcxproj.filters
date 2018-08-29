@@ -19,58 +19,58 @@
     <Filter Include="Header Files\Screens">
       <UniqueIdentifier>{ea6f7ec3-d63f-40f7-a226-c8d82c5f67fb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\ScreensImplement">
+      <UniqueIdentifier>{91ae5230-ad67-4721-b646-04244e80b1b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\EngineImplement">
+      <UniqueIdentifier>{218488df-db34-4114-9366-2808d749dcdb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\PocketTriviaImplement">
+      <UniqueIdentifier>{d35765cf-9a91-45bf-b907-138fe2158b25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine">
+      <UniqueIdentifier>{086ab2ac-e8e6-4a3a-8851-93456c50d6a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\PocketTrivia">
+      <UniqueIdentifier>{093576f6-5e4e-46b0-95d5-ffce6385ab6a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="question.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="chapter.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="unit.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="game.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="cursor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="option.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="unit_screen.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="chapter_screen.cpp">
+      <Filter>Source Files\ScreensImplement</Filter>
     </ClCompile>
     <ClCompile Include="start_screen.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\ScreensImplement</Filter>
+    </ClCompile>
+    <ClCompile Include="unit_screen.cpp">
+      <Filter>Source Files\ScreensImplement</Filter>
+    </ClCompile>
+    <ClCompile Include="game.cpp">
+      <Filter>Source Files\EngineImplement</Filter>
+    </ClCompile>
+    <ClCompile Include="cursor.cpp">
+      <Filter>Source Files\EngineImplement</Filter>
+    </ClCompile>
+    <ClCompile Include="chapter.cpp">
+      <Filter>Source Files\PocketTriviaImplement</Filter>
+    </ClCompile>
+    <ClCompile Include="option.cpp">
+      <Filter>Source Files\PocketTriviaImplement</Filter>
+    </ClCompile>
+    <ClCompile Include="question.cpp">
+      <Filter>Source Files\PocketTriviaImplement</Filter>
+    </ClCompile>
+    <ClCompile Include="unit.cpp">
+      <Filter>Source Files\PocketTriviaImplement</Filter>
+    </ClCompile>
+    <ClCompile Include="question_screen.cpp">
+      <Filter>Source Files\ScreensImplement</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="question.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="enums.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="chapter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="unit.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="cursor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="option.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="screen.h">
       <Filter>Header Files\Screens</Filter>
     </ClInclude>
@@ -78,6 +78,33 @@
       <Filter>Header Files\Screens</Filter>
     </ClInclude>
     <ClInclude Include="unit_screen.h">
+      <Filter>Header Files\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="chapter_screen.h">
+      <Filter>Header Files\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="cursor.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="game.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="chapter.h">
+      <Filter>Header Files\PocketTrivia</Filter>
+    </ClInclude>
+    <ClInclude Include="enums.h">
+      <Filter>Header Files\PocketTrivia</Filter>
+    </ClInclude>
+    <ClInclude Include="option.h">
+      <Filter>Header Files\PocketTrivia</Filter>
+    </ClInclude>
+    <ClInclude Include="question.h">
+      <Filter>Header Files\PocketTrivia</Filter>
+    </ClInclude>
+    <ClInclude Include="unit.h">
+      <Filter>Header Files\PocketTrivia</Filter>
+    </ClInclude>
+    <ClInclude Include="question_screen.h">
       <Filter>Header Files\Screens</Filter>
     </ClInclude>
   </ItemGroup>
