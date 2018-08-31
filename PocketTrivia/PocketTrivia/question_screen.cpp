@@ -9,10 +9,12 @@
 using std::vector;
 using std::string;
 
-QuestionScreen::QuestionScreen(Question* _question) {
+QuestionScreen::QuestionScreen(Question* _question, std::string _unit_name, std::string _chapter_name) {
 	background = "unit_screen.bmp";
 	points = 0;
 	question = _question;
+	unit_name = _unit_name;
+	chapter_name = _chapter_name;
 	menu.activate(question->options);
 }
 

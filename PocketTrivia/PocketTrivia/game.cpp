@@ -118,7 +118,7 @@ void Game::run() {
 				for (int j = 0; j < ask_unit->chapters.size(); j++) {
 					Chapter* ask_chapter = ask_unit->chapters.at(j);
 					for (int k = 0; k < ask_chapter->questions.size(); k++) {
-						QuestionScreen ask_screen(ask_chapter->questions.at(k));
+						QuestionScreen ask_screen(ask_chapter->questions.at(k), ask_unit->name, ask_chapter->name);
 						ask_screen.run(font);
 						score += ask_screen.points;
 					}
@@ -130,7 +130,7 @@ void Game::run() {
 			for (int j = 0; j < current_unit->chapters.size(); j++) {
 				Chapter* ask_chapter = current_unit->chapters.at(j);
 				for (int k = 0; k < ask_chapter->questions.size(); k++) {
-					QuestionScreen ask_screen(ask_chapter->questions.at(k));
+					QuestionScreen ask_screen(ask_chapter->questions.at(k), current_unit->name, ask_chapter->name);
 					ask_screen.run(font);
 					score += ask_screen.points;
 				}
@@ -139,7 +139,7 @@ void Game::run() {
 		}
 		else if (state == AskQuestionNormal) {
 			for (int k = 0; k < current_chapter->questions.size(); k++) {
-				QuestionScreen ask_screen(current_chapter->questions.at(k));
+				QuestionScreen ask_screen(current_chapter->questions.at(k), current_unit->name, current_chapter->name);
 				ask_screen.run(font);
 				score += ask_screen.points;
 			}

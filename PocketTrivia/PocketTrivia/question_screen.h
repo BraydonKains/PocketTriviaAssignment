@@ -12,11 +12,11 @@ public:
 
 	int points;
 
-	Unit* unit;
-	Chapter* chapter;
+	std::string unit_name;
+	std::string chapter_name;
 	Question* question;
 
-	QuestionScreen(Question* _question);
+	QuestionScreen(Question* _question, std::string _unit_name, std::string _chapter_name);
 
 	void run(ALLEGRO_FONT* font);
 	void back();
