@@ -3,6 +3,7 @@
 #include <allegro5/allegro_font.h>
 #include <vector>
 #include <string>
+
 #include "unit.h"
 #include "chapter.h"
 #include "question.h"
@@ -31,6 +32,5 @@ public:
 	void run();
 
 private:
-	void to_state(State next_state);
 	void reset();
 };

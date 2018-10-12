@@ -1,6 +1,9 @@
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_font.h>
 #include <allegro5/allegro_primitives.h>
+#include <allegro5/allegro_audio.h>
+#include <allegro5/allegro_acodec.h>
+
 #include <string>
 #include <vector>
 #include <fstream>
@@ -71,24 +74,20 @@ void Game::init() {
 	
 }
 
-void Game::to_state(State next_state) {
-	switch (next_state) {
-	case Start:
-		init();
-		break;
-	}
-
-	state = next_state;
-}
-
 void Game::reset() {
 	score = 0;
 	current_unit = nullptr;
 	current_chapter = nullptr;
 }
 
-//MOST IMPORTANT FUNCTION SO IT'S AT THE BOTTOM
 void Game::run() {
+	ALLEGRO_SAMPLE* theme = al_load_sample("theme.wav");
+	if (!theme) {
+		fprintf(stderr, "sample didn't load!\n");
+	}
+	else {
+		al_play_sample(theme, 0.5, 0.0, 1.0, ALLEGRO_PLAYMODE_LOOP, NULL);
+	}
 	while(state != Exit) {
 		if (state == Start) {
 			reset();
@@ -153,4 +152,5 @@ void Game::run() {
 			state = result_screen.next_state;
 		}
 	}
+	al_destroy_sample(theme);
 }
